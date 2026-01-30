@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { fetchGeminiPricing, verifyComponentWithGemini } from '../lib/gemini';
-import { Heart, DollarSign, Trash2, Loader2, Sparkles, CheckCircle, AlertTriangle, Receipt, Info, Globe, ShieldCheck, Truck, ArrowRight } from 'lucide-react';
+import { Heart, DollarSign, Trash2, Loader2, Sparkles, CheckCircle, AlertTriangle, Receipt, Info, Globe, Truck } from 'lucide-react';
 import { Button, Card, Badge, Navbar } from '../components/ui';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/database.types';

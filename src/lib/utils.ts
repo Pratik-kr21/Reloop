@@ -50,10 +50,10 @@ export async function processImageForGemini(file: File): Promise<{ base64: strin
                     mimeType: 'image/jpeg'
                 });
             };
-            img.onerror = (e) => reject(new Error('Failed to load image for processing'));
+            img.onerror = () => reject(new Error('Failed to load image for processing'));
             img.src = event.target?.result as string;
         };
-        reader.onerror = (e) => reject(new Error('Failed to read file'));
+        reader.onerror = () => reject(new Error('Failed to read file'));
         reader.readAsDataURL(file);
     });
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { Recycle, ArrowLeft, ArrowRight, CheckCircle, AlertTriangle, Loader2, BookOpen, ShieldCheck, ZapOff, ShieldAlert, Award } from 'lucide-react';
+import { Recycle, ArrowLeft, ArrowRight, AlertTriangle, Loader2, BookOpen, ShieldCheck, ZapOff, ShieldAlert } from 'lucide-react';
 import { Button, Card, Badge, Navbar } from '../components/ui';
 import SafetyGate from '../components/SafetyGate';
 import EducationalContext from '../components/EducationalContext';
@@ -37,8 +37,7 @@ export default function TeardownRunnerPage() {
     const [safetyAcknowledged, setSafetyAcknowledged] = useState<Record<string, boolean>>({});
 
     // AI Verification State
-    const [verificationStatus, setVerificationStatus] = useState<Record<string, 'idle' | 'verifying' | 'verified' | 'failed'>>({});
-    const [verificationResults, setVerificationResults] = useState<Record<string, any>>({});
+
 
     useEffect(() => {
         const fetchDeviceData = async () => {

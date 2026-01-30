@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { Trophy, Medal, ArrowUp, ArrowDown, Loader2, Target, Users } from 'lucide-react';
 import { Button, Card, Badge } from '../components/ui';
 import Navbar from '../components/ui/Navbar';
@@ -16,14 +16,7 @@ interface LeaderboardUser {
     trend: 'up' | 'down' | 'neutral';
 }
 
-const mockLeaderboard: LeaderboardUser[] = [
-    { id: '1', rank: 1, name: 'Alex Rivera', school: 'Tech High', xp: 12500, parts_saved: 42, trend: 'neutral' },
-    { id: '2', rank: 2, name: 'Sarah Chen', school: 'North Academy', xp: 11200, parts_saved: 38, trend: 'up' },
-    { id: '3', rank: 3, name: 'Jordan Smyth', school: 'Tech High', xp: 9800, parts_saved: 31, trend: 'up' },
-    { id: '4', rank: 4, name: 'Kimberly Wu', school: 'West Secondary', xp: 8500, parts_saved: 28, trend: 'down' },
-    { id: '5', rank: 5, name: 'David Miller', school: 'North Academy', xp: 7200, parts_saved: 24, trend: 'neutral' },
-    { id: '6', rank: 6, name: 'Elena Gomez', school: 'Tech High', xp: 6800, parts_saved: 21, trend: 'up' },
-];
+
 
 export default function LeaderboardPage() {
     const [users, setUsers] = useState<LeaderboardUser[]>([]);
