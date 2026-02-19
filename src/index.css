@@ -40,12 +40,108 @@
     @apply antialiased font-sans;
     background-color: var(--color-background);
     color: var(--color-text-primary);
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Global smooth transitions for responsive changes */
+  * {
+    transition: font-size 0.2s ease-out,
+      padding 0.2s ease-out,
+      margin 0.2s ease-out,
+      width 0.2s ease-out,
+      height 0.2s ease-out,
+      gap 0.2s ease-out,
+      border-width 0.2s ease-out;
+  }
+
+  /* Fluid responsive sizing helpers */
+  .fluid-text-xs {
+    font-size: clamp(0.625rem, 0.5rem + 0.5vw, 0.75rem);
+  }
+
+  .fluid-text-sm {
+    font-size: clamp(0.75rem, 0.6rem + 0.6vw, 0.875rem);
+  }
+
+  .fluid-text-base {
+    font-size: clamp(0.875rem, 0.75rem + 0.5vw, 1rem);
+  }
+
+  .fluid-text-lg {
+    font-size: clamp(1rem, 0.85rem + 0.6vw, 1.125rem);
+  }
+
+  .fluid-text-xl {
+    font-size: clamp(1.125rem, 0.9rem + 0.9vw, 1.25rem);
+  }
+
+  .fluid-text-2xl {
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+  }
+
+  .fluid-text-3xl {
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 1.875rem);
+  }
+
+  .fluid-text-4xl {
+    font-size: clamp(1.875rem, 1.5rem + 1.5vw, 2.25rem);
+  }
+
+  .fluid-text-5xl {
+    font-size: clamp(2.25rem, 1.8rem + 1.8vw, 3rem);
+  }
+
+  .fluid-gap-4 {
+    gap: clamp(0.75rem, 0.5rem + 1vw, 1rem);
+  }
+
+  .fluid-gap-6 {
+    gap: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+  }
+
+  .fluid-p-8 {
+    padding: clamp(1.5rem, 1rem + 2vw, 2rem);
+  }
+
+  .fluid-p-12 {
+    padding: clamp(2rem, 1.5rem + 2vw, 3rem);
   }
 
   /* Improved focus indicators for accessibility */
   *:focus-visible {
     outline: 3px solid var(--color-pastel-coral);
     outline-offset: 2px;
+  }
+
+  /* Prevent horizontal overflow globally */
+  * {
+    max-width: 100%;
+  }
+
+  /* Allow full-bleed elements to extend edge-to-edge */
+  .full-bleed {
+    max-width: 100vw !important;
+  }
+
+  /* Thin consistent borders on mobile for feature banner */
+  .mobile-no-side-borders {
+    transition: border-width 0.3s ease, padding 0.3s ease;
+  }
+
+  @media (max-width: 1023px) {
+    .mobile-no-side-borders {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      border-left-width: 4px !important;
+      border-right-width: 4px !important;
+    }
+  }
+
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -99,5 +195,248 @@
         #f0f0f0 100%);
     background-size: 1000px 100%;
     animation: shimmer 1.5s infinite;
+  }
+
+  /* ===== RESPONSIVE UTILITIES ===== */
+
+  /* Responsive container padding */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  /* Responsive table wrapper for horizontal scroll */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent horizontal overflow */
+  .prevent-overflow {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* Responsive text scaling */
+  @media (max-width: 640px) {
+
+    /* Extra large headings scale down AGGRESSIVELY */
+    .text-\[8rem\] {
+      font-size: 2.5rem !important;
+      line-height: 0.9 !important;
+    }
+
+    .text-\[7rem\] {
+      font-size: 2.25rem !important;
+      line-height: 0.9 !important;
+    }
+
+    .text-\[5rem\] {
+      font-size: 1.875rem !important;
+      line-height: 1 !important;
+    }
+
+    .text-6xl {
+      font-size: 1.75rem !important;
+      line-height: 1 !important;
+    }
+
+    .text-5xl {
+      font-size: 1.5rem !important;
+      line-height: 1 !important;
+    }
+
+    .text-4xl {
+      font-size: 1.5rem !important;
+      line-height: 1.1 !important;
+    }
+
+    .text-3xl {
+      font-size: 1.25rem !important;
+      line-height: 1.2 !important;
+    }
+
+    .text-2xl {
+      font-size: 1.125rem !important;
+      line-height: 1.2 !important;
+    }
+
+    .text-xl {
+      font-size: 1rem !important;
+      line-height: 1.3 !important;
+    }
+
+    /* Responsive spacing adjustments */
+    .py-20 {
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
+    }
+
+    .py-16 {
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+
+    .py-12 {
+      padding-top: 1.25rem !important;
+      padding-bottom: 1.25rem !important;
+    }
+
+    .py-8 {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
+
+    .px-8 {
+      padding-left: 1.25rem !important;
+      padding-right: 1.25rem !important;
+    }
+
+    .p-12 {
+      padding: 1.25rem !important;
+    }
+
+    .p-16 {
+      padding: 1.5rem !important;
+    }
+
+    .p-8 {
+      padding: 1rem !important;
+    }
+
+    /* Responsive margins */
+    .mb-24 {
+      margin-bottom: 2rem !important;
+    }
+
+    .mb-16 {
+      margin-bottom: 1.5rem !important;
+    }
+
+    .mb-12 {
+      margin-bottom: 1.25rem !important;
+    }
+
+    .mb-8 {
+      margin-bottom: 1rem !important;
+    }
+
+    .mt-32 {
+      margin-top: 2.5rem !important;
+    }
+
+    .gap-12 {
+      gap: 1.25rem !important;
+    }
+
+    .gap-16 {
+      gap: 1.5rem !important;
+    }
+
+    .gap-8 {
+      gap: 1rem !important;
+    }
+
+    /* Responsive rounded corners */
+    .rounded-\[3rem\] {
+      border-radius: 1.25rem !important;
+    }
+
+    /* Button sizing */
+    .h-16 {
+      height: 2.75rem !important;
+    }
+
+    .h-14 {
+      height: 2.75rem !important;
+    }
+
+    .h-12 {
+      height: 2.5rem !important;
+    }
+
+    /* Avatar sizing */
+    .w-40 {
+      width: 7rem !important;
+    }
+
+    .h-40 {
+      height: 7rem !important;
+    }
+
+    /* Text sizing for specific elements */
+    .text-lg {
+      font-size: 0.95rem !important;
+    }
+
+    /* Better spacing for containers */
+    .container {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    /* MOBILE PERFORMANCE OPTIMIZATIONS */
+
+    /* Remove expensive blur filters on mobile */
+    .blur-\[150px\],
+    .blur-\[130px\],
+    .blur-\[100px\],
+    .blur-\[80px\],
+    .blur-\[60px\] {
+      filter: none !important;
+      backdrop-filter: none !important;
+    }
+
+    /* Replace transition-all with specific transitions for performance */
+    .transition-all {
+      transition-property: transform, opacity, background-color, border-color, color !important;
+      transition-duration: 0.2s !important;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    /* Hardware acceleration for transforms */
+    .transform,
+    [class*="translate"],
+    [class*="rotate"],
+    [class*="scale"] {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    /* Optimize animations */
+    @keyframes marquee {
+      from {
+        transform: translateX(0) translateZ(0);
+      }
+
+      to {
+        transform: translateX(-50%) translateZ(0);
+      }
+    }
+
+    /* Smooth scrolling optimization */
+    * {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  /* Tablet responsive adjustments */
+  @media (max-width: 768px) {
+    .text-\[8rem\] {
+      font-size: 4rem !important;
+      line-height: 0.9 !important;
+    }
+
+    .text-\[7rem\] {
+      font-size: 3.5rem !important;
+      line-height: 0.9 !important;
+    }
+
+    .text-\[5rem\] {
+      font-size: 3rem !important;
+      line-height: 1 !important;
+    }
   }
 }

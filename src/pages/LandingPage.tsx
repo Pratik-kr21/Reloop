@@ -39,12 +39,12 @@ export default function LandingPage() {
                         opacity: 0.4
                     }} />
 
-                    {/* Gradient Glows */}
-                    <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full blur-[150px] opacity-20"
+                    {/* Gradient Glows - Hidden on mobile for cleaner look */}
+                    <div className="hidden md:block absolute top-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full blur-[150px] opacity-20"
                         style={{ backgroundColor: 'var(--color-pastel-coral)' }} />
-                    <div className="absolute bottom-[20%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[130px] opacity-20"
+                    <div className="hidden md:block absolute bottom-[20%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[130px] opacity-20"
                         style={{ backgroundColor: 'var(--color-pastel-blue)' }} />
-                    <div className="absolute top-[40%] left-[20%] w-[30%] h-[30%] rounded-full blur-[100px] opacity-10"
+                    <div className="hidden md:block absolute top-[40%] left-[20%] w-[30%] h-[30%] rounded-full blur-[100px] opacity-10"
                         style={{ backgroundColor: 'var(--color-pastel-yellow)' }} />
                 </div>
 
@@ -88,19 +88,19 @@ export default function LandingPage() {
                 </div>
 
                 {/* Scrolling Banner - Solid Screen-Edge Anchor */}
-                <div className="w-[calc(100%+4rem)] -mx-8 bg-black text-white py-4 border-t-4 border-black overflow-hidden whitespace-nowrap z-30 shadow-[0_-8px_30px_rgba(0,0,0,0.2)]">
+                <div className="full-bleed bg-black text-white py-3 sm:py-4 border-t-4 border-black overflow-hidden whitespace-nowrap z-30 shadow-[0_-8px_30px_rgba(0,0,0,0.2)]" style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)', maxWidth: '100vw' }}>
                     <motion.div
                         animate={{ x: [0, -1000] }}
                         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                        className="flex gap-24 text-base font-black uppercase tracking-widest italic"
+                        className="flex gap-8 sm:gap-16 md:gap-24 text-xs sm:text-sm md:text-base font-black uppercase tracking-widest italic"
                     >
-                        <div className="flex items-center gap-4 text-pastel-coral"><Globe className="w-5 h-5" /> 4,200kg E-Waste Saved</div>
-                        <div className="flex items-center gap-4 text-pastel-yellow"><Zap className="w-5 h-5" /> 12,000 Components Harvested</div>
-                        <div className="flex items-center gap-4 text-pastel-blue"><Award className="w-5 h-5" /> ₹1.2Cr Community Value</div>
-                        <div className="flex items-center gap-4 text-pastel-peach"><Shield className="w-5 h-5" /> AI Verified Components</div>
+                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 text-pastel-coral"><Globe className="w-4 h-4 sm:w-5 sm:h-5" /> 4,200kg E-Waste Saved</div>
+                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 text-pastel-yellow"><Zap className="w-4 h-4 sm:w-5 sm:h-5" /> 12,000 Components Harvested</div>
+                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 text-pastel-blue"><Award className="w-4 h-4 sm:w-5 sm:h-5" /> ₹1.2Cr Community Value</div>
+                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 text-pastel-peach"><Shield className="w-4 h-4 sm:w-5 sm:h-5" /> AI Verified Components</div>
                         {/* Duplicate */}
-                        <div className="flex items-center gap-4 text-pastel-coral"><Globe className="w-5 h-5" /> 4,200kg E-Waste Saved</div>
-                        <div className="flex items-center gap-4 text-pastel-yellow"><Zap className="w-5 h-5" /> 12,000 Components Harvested</div>
+                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 text-pastel-coral"><Globe className="w-4 h-4 sm:w-5 sm:h-5" /> 4,200kg E-Waste Saved</div>
+                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 text-pastel-yellow"><Zap className="w-4 h-4 sm:w-5 sm:h-5" /> 12,000 Components Harvested</div>
                     </motion.div>
                 </div>
             </section>
@@ -152,23 +152,23 @@ export default function LandingPage() {
 
             {/* Large Feature Banner */}
             <section className="px-8 mb-20">
-                <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-px bg-black border-4 border-black group">
-                    <div className="bg-white p-12 flex flex-col justify-center">
+                <div className="mobile-no-side-borders container mx-auto max-w-6xl grid md:grid-cols-2 bg-black border-y-4 lg:border-4 border-black group transition-all duration-300">
+                    <div className="bg-white p-8 sm:p-12 flex flex-col justify-center transition-all duration-300">
                         <Badge variant="blue" className="mb-6 w-fit">AI ECOSYSTEM</Badge>
-                        <h2 className="text-5xl font-black uppercase italic tracking-tighter mb-6">Built with Gemini 2.0 Flash</h2>
-                        <p className="text-xl opacity-70 mb-8 font-medium">Our vision system doesn't just recognize parts; it grades them for circularity, estimates remaining lifespan, and suggests the best secondary use case.</p>
+                        <h2 className="text-5xl font-black uppercase italic tracking-tighter mb-6 transition-all duration-300">Built with Gemini 2.0 Flash</h2>
+                        <p className="text-xl opacity-70 mb-8 font-medium transition-all duration-300">Our vision system doesn't just recognize parts; it grades them for circularity, estimates remaining lifespan, and suggests the best secondary use case.</p>
                         <Button variant="primary" size="md" className="w-fit">View AI Docs</Button>
                     </div>
-                    <div className="bg-pastel-peach p-12 flex items-center justify-center relative overflow-hidden">
+                    <div className="bg-pastel-peach p-8 sm:p-12 flex flex-col items-center justify-center gap-4 sm:gap-6 overflow-hidden transition-all duration-300">
                         <motion.div
                             animate={{ rotate: 360 }}
                             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="w-64 h-64 border-2 border-black border-dashed rounded-full flex items-center justify-center"
+                            className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 border-2 border-black border-dashed rounded-full flex items-center justify-center transition-all duration-300"
                         >
-                            <Recycle className="w-32 h-32" />
+                            <Recycle className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-all duration-300" />
                         </motion.div>
-                        <div className="absolute inset-x-0 bottom-8 text-center">
-                            <span className="text-xs font-black uppercase tracking-widest">98.4% Identification Accuracy</span>
+                        <div className="text-center px-4">
+                            <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest transition-all duration-300">98.4% Identification Accuracy</span>
                         </div>
                     </div>
                 </div>

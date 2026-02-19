@@ -341,36 +341,38 @@ export default function ProfilePage() {
                             </h2>
                             <Card variant="white" padding="none" className="overflow-hidden border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
                                 {activityLog.length > 0 ? (
-                                    <table className="w-full text-left border-collapse">
-                                        <thead className="bg-black text-white">
-                                            <tr>
-                                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Entry</th>
-                                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Target</th>
-                                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Reward</th>
-                                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-right">Time</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {activityLog.map((act, i) => (
-                                                <tr key={i} className="border-b-2 border-black last:border-0 hover:bg-gray-50 transition-colors">
-                                                    <td className="px-6 py-6">
-                                                        <div className="font-black uppercase italic tracking-tighter">{act.action}</div>
-                                                        <div className={cn(
-                                                            "text-[10px] font-black uppercase tracking-widest",
-                                                            act.status === 'verified' || act.status === 'completed' ? 'text-green-500' : 'text-gray-400'
-                                                        )}>
-                                                            {act.status}
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-6 py-6 font-bold text-gray-500 italic text-sm">{act.target}</td>
-                                                    <td className="px-6 py-6 font-black text-pastel-coral italic uppercase tracking-tighter">{act.xp}</td>
-                                                    <td className="px-6 py-6 text-right text-xs font-black text-gray-300 uppercase leading-none">
-                                                        {act.date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
-                                                    </td>
+                                    <div className="table-responsive">
+                                        <table className="w-full text-left border-collapse">
+                                            <thead className="bg-black text-white">
+                                                <tr>
+                                                    <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Entry</th>
+                                                    <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Target</th>
+                                                    <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest">Reward</th>
+                                                    <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-right">Time</th>
                                                 </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                {activityLog.map((act, i) => (
+                                                    <tr key={i} className="border-b-2 border-black last:border-0 hover:bg-gray-50 transition-colors">
+                                                        <td className="px-6 py-6">
+                                                            <div className="font-black uppercase italic tracking-tighter">{act.action}</div>
+                                                            <div className={cn(
+                                                                "text-[10px] font-black uppercase tracking-widest",
+                                                                act.status === 'verified' || act.status === 'completed' ? 'text-green-500' : 'text-gray-400'
+                                                            )}>
+                                                                {act.status}
+                                                            </div>
+                                                        </td>
+                                                        <td className="px-6 py-6 font-bold text-gray-500 italic text-sm">{act.target}</td>
+                                                        <td className="px-6 py-6 font-black text-pastel-coral italic uppercase tracking-tighter">{act.xp}</td>
+                                                        <td className="px-6 py-6 text-right text-xs font-black text-gray-300 uppercase leading-none">
+                                                            {act.date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 ) : (
                                     <div className="p-8 text-center text-gray-400 font-medium italic">
                                         No recent activity recorded.

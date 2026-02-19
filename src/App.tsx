@@ -12,6 +12,7 @@ import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/auth/LoginPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import PWAUpdatePrompt from './components/ui/PWAUpdatePrompt';
 
 import { useEffect } from 'react';
 import { useAuthStore } from './lib/auth.store';
@@ -25,6 +26,7 @@ function App() {
 
     return (
         <Router>
+            <PWAUpdatePrompt />
             <Routes>
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignUpPage />} />
